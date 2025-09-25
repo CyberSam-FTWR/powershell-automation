@@ -1,0 +1,32 @@
+# Filename: "App/SoftwareName.ps1"
+
+$uninstaller = "C:\Program Files\"App/SoftwareName"\uninstall.exe"
+if (Test-Path $uninstaller) {
+    Start-Process -FilePath $uninstaller -ArgumentList "/S" -NoNewWindow -Wait
+    Write-Output "App/SoftwareName" uninstalled successfully."
+} else {
+    Write-Output "App/SoftwareName" uninstaller not found."
+}
+
+\\\\\Samples Below///// -- Wireshark -- Firefox
+
+# Filename: uninstall-wireshark.ps1
+
+$uninstaller = "C:\Program Files\Wireshark\uninstall.exe"
+if (Test-Path $uninstaller) {
+    Start-Process -FilePath $uninstaller -ArgumentList "/S" -NoNewWindow -Wait
+    Write-Output "Wireshark uninstalled successfully."
+} else {
+    Write-Output "Wireshark uninstaller not found."
+}
+
+# Define the path to the uninstall helper
+$uninstallHelperPath = 'C:\Program Files\Mozilla Firefox\uninstall\helper.exe'
+
+# If the uninstall helper exists, run it silently
+if (Test-Path $uninstallHelperPath) {
+    Start-Process -FilePath $uninstallHelperPath -ArgumentList '/S' -NoNewWindow -Wait
+    Write-Host "Firefox uninstall command executed."
+} else {
+    Write-Host "Firefox uninstall helper not found at: $uninstallHelperPath"
+}
