@@ -1,9 +1,1 @@
-# Filename: uninstall-wireshark.ps1
 
-$uninstaller = "C:\Program Files\Wireshark\uninstall.exe"
-if (Test-Path $uninstaller) {
-    Start-Process -FilePath $uninstaller -ArgumentList "/S" -NoNewWindow -Wait
-    Write-Output "Wireshark uninstalled successfully."
-} else {
-    Write-Output "Wireshark uninstaller not found."
-}
